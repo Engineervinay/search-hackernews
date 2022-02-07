@@ -3,7 +3,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>hello from react</h1>
+      <input type="text" className="search-bar" placeholder="search"/>
+
+
+
+
     </div>
   );
 }
