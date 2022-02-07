@@ -1,21 +1,37 @@
 import './App.css';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 function App() {
 var [userInput,setuserInput]=useState("search text");
+var [userOutput,setuserOutput]=useState([]);
+
 var url;
 
 function searchChange(event){
   var searchkey=event.target.value;
   setuserInput(searchkey);
-console.log("hello");
+  var url="http://hn.algolia.com/api/v1/search?query="+userInput+"&tags=story";
+ 
+  console.log("1");
 }
 
+
 function searchOperation(event){
-  var url="http://hn.algolia.com/api/v1/search_by_date?query="+userInput+"&tags=story";
+ 
+
+  const fetchData=async()=>{
+    const res= await fetch('http://hn.algolia.com/api/v1/search?query='+userInput);
+    const json=await res.json();
+    setuserOutput(json.hits);
+  };
+  fetchData();
+ 
+ 
+ /*
   fetch(url)
   .then(response=>response.json())
-
-  console.log(url);
+  .then(json=>setuserOutput(json))
+*/
+  console.log(userOutput);
 }
   return (
     <div className="App">
