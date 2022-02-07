@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from "react";
 function App() {
-var [userInput,setuserInput]=usestate("search text");
+var [userInput,setuserInput]=useState("search text");
 var url;
 
 function searchChange(event){
@@ -11,7 +11,10 @@ console.log("hello");
 }
 
 function searchOperation(event){
-  var url="http://hn.algolia.com/api/v1/search_by_date?query="+userInput;
+  var url="http://hn.algolia.com/api/v1/search_by_date?query="+userInput+"&tags=story";
+  fetch(url)
+  .then(response=>response.json())
+
   console.log(url);
 }
   return (
