@@ -38,7 +38,13 @@ function searchOperation(event){
       <input onChange={searchChange} type="text" className="search-bar" placeholder="search"/>
       <button onClick={searchOperation}>Search</button>
 
-
+      <div>
+        {userOutput.map(item=>(
+          <div key={item.ObjectId}>
+            <h3>{item.title}</h3>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
