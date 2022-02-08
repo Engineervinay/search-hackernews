@@ -1,11 +1,12 @@
 import React from 'react';
 import { useState,useEffect } from "react";
-
-function Search() {
+import {useNavigate} from "react-router-dom";
+function Search(props) {
  
 var [userInput,setuserInput]=useState("search text");
 var [userOutput,setuserOutput]=useState([]);
 
+let navigate=useNavigate();
 
 
 function searchChange(event){
@@ -41,7 +42,7 @@ function searchOperation(event){
 
       <div>
         {userOutput.map(item=>(
-          <div key={item.ObjectId} value={item.ObjectId}>
+          <div key={item.objectID} value={item.objectID} onClick={()=>{props.getId(item.objectID);navigate("/Details");} } >
             <h3>{item.title}</h3>
           </div>
         ))}

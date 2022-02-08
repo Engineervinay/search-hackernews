@@ -1,9 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
+function Details(props) {
+  var Id=props.value;
 
-function Details() {
+  
   return (
       <div className='Details'>
-
+        <h1>{props.value}</h1>
       </div>
   );
 }
