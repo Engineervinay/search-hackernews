@@ -3,7 +3,7 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 function Search(props) {
  
-var [userInput,setuserInput]=useState("elon musk");
+var [userInput,setuserInput]=useState("%%%%%pqir$#");
 var [userOutput,setuserOutput]=useState([]);
 
 let navigate=useNavigate();
@@ -17,8 +17,11 @@ function searchChange(event){
 
 
 function searchOperation(event){
- 
-
+    if(userInput ==="%%%%%pqir$#")
+    {
+      alert("Please fill the text box");
+    }
+  else{
   const fetchData=async()=>{
     const res= await fetch('http://hn.algolia.com/api/v1/search?query='+userInput);
     const json=await res.json();
@@ -31,6 +34,7 @@ function searchOperation(event){
   .then(json=>setuserOutput(json))
 */
   console.log(userOutput);
+}
 }
 
 
