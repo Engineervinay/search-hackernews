@@ -5,9 +5,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #bbe4e9;
+
+text-align: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+/*Header*/
+.Header h1{
+  font-size: 2rem;
+  color:#5585b5;
+}
+
+
+.Search{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.Search .search-bar{
+  border-radius: 20px;
+  margin:5rem;
+  min-width:16rem;
+  
+  margin-bottom:1rem;
+  border: 3px solid #79c2d0;
+  padding: 0.5rem;
+}
+.search-bar:hover{
+  border: 3px solid #53a8b6;
 }

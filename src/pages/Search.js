@@ -39,7 +39,7 @@ function searchOperation(event){
       <input onChange={searchChange} type="text" className="search-bar" placeholder="Search"/>
       <button onClick={searchOperation}>Search</button>
 
-      <div>
+      <div className='container'>
         {userOutput.map(item=>(
           <div key={item.objectID} value={item.objectID} onClick={()=>{props.getId(item.objectID);navigate("/Details");} } >
             <h3>{item.title}</h3>
