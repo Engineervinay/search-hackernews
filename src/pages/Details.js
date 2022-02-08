@@ -24,7 +24,11 @@ function getDetails(){
       <div className='Details'>
         <h1>{objectDetails.title}</h1>
         <h3>{objectDetails.points}</h3>
-        
+        <div>
+        {objectDetails.children.map(item=>(
+            <h3>{item.text}</h3>
+          ))}
+        </div>
       </div>
   );
 }

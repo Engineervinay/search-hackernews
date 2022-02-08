@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 function Search(props) {
  
@@ -13,7 +13,6 @@ function searchChange(event){
   var searchkey=event.target.value;
   setuserInput(searchkey);
  
-  console.log("1");
 }
 
 
