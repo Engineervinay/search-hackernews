@@ -6,8 +6,9 @@ body {
   -webkit-font-smoothing: antialiased;
  
  background-color: #bbe4e9;
- 
+  height:auto;
   text-align: center;
+  padding-bottom:60px;
 }
 
 
