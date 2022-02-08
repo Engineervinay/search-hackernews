@@ -28,7 +28,7 @@ function getDetails(){
         <h3>{objectDetails.points}</h3>
         <div>
         {childDetails.map(item=>(
-            <div>{item.text}</div>
+            <div key={item.id}>{item.text}</div>
           ))}
         </div>
       </div>
