@@ -1,5 +1,7 @@
-# Search engine for Hackernews using api
+# Search engine for Hackernews using api [![Netlify Status](https://api.netlify.com/api/v1/badges/ce46fe75-4326-436d-9e6e-8b6ba52c4852/deploy-status)](https://search-hackernews-vinay.netlify.app/)
 This Project works as a search engine for Hackernews
+here is Hosted Site
+https://search-hackernews-vinay.netlify.app/
 
 # Installations
 Editor, npm, react library
