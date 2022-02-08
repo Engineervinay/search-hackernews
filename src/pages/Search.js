@@ -37,11 +37,11 @@ function searchOperation(event){
   return (
     <div className="Search">
       <input onChange={searchChange} type="text" className="search-bar" placeholder="Search"/>
-      <button onClick={searchOperation}>Search</button>
+      <button onClick={searchOperation} className="search-button">Search</button>
 
       <div className='container'>
         {userOutput.map(item=>(
-          <div key={item.objectID} value={item.objectID} onClick={()=>{props.getId(item.objectID);navigate("/Details");} } >
+          <div className="element" key={item.objectID} value={item.objectID} onClick={()=>{props.getId(item.objectID);navigate("/Details");} } >
             <h3>{item.title}</h3>
           </div>
         ))}
