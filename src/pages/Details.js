@@ -25,10 +25,11 @@ function getDetails(){
   return (
       <div className='Details'>
         <h1>{objectDetails.title}</h1>
-        <h3>{objectDetails.points}</h3>
-        <div>
+        <h3>Points:{objectDetails.points}</h3>
+        <div className='comments'>
+          <h3>Comments</h3>
         {childDetails.map(item=>(
-            <div key={item.id}>{item.text}</div>
+            <div className="comment" key={item.id}>{item.text}</div>
           ))}
         </div>
       </div>
