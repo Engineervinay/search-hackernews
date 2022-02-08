@@ -3,7 +3,7 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 function Search(props) {
  
-var [userInput,setuserInput]=useState("search text");
+var [userInput,setuserInput]=useState("elon musk");
 var [userOutput,setuserOutput]=useState([]);
 
 let navigate=useNavigate();
