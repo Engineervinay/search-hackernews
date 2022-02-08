@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
+
+
 function Search(props) {
  
 var [userInput,setuserInput]=useState("%%%%%pqir$#");
@@ -23,7 +25,7 @@ function searchOperation(event){
     }
   else{
   const fetchData=async()=>{
-    const res= await fetch('http://hn.algolia.com/api/v1/search?query='+userInput);
+    const res= await fetch('https://hn.algolia.com/api/v1/search?query='+userInput);
     const json=await res.json();
     setuserOutput(json.hits);
   };

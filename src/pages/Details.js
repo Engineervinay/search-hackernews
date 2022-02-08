@@ -8,7 +8,7 @@ function getDetails(){
   console.log(props.value);
 
   const fetchData=async()=>{
-    const res= await fetch('http://hn.algolia.com/api/v1/items/'+props.value);
+    const res= await fetch('https://hn.algolia.com/api/v1/items/'+props.value);
     const json=await res.json();
     setobjectDetails(json);
     setchildDetails(json.children);
