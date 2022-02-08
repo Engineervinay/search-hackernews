@@ -25,7 +25,7 @@ function getDetails(){
   return (
       <div className='Details'>
         <h1>{objectDetails.title}</h1>
-        <h3>Points:{objectDetails.points}</h3>
+        <h3 className='points'>Points:{objectDetails.points}</h3>
         <div className='comments'>
           <h3>Comments</h3>
         {childDetails.map(item=>(

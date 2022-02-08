@@ -86,6 +86,9 @@ align-items: justify;
   align-items: center;
   margin:2rem;
 }
+.points{
+  font-size: 20px;
+}
 .Details .comments{
   display:flex;
   flex-direction: column;
