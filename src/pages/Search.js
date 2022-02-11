@@ -2,10 +2,9 @@ import React from 'react';
 import { useState } from "react";
 import {useNavigate} from "react-router-dom";
 
-
 function Search(props) {
  
-var [userInput,setuserInput]=useState("%%%%%pqir$#");
+var [userInput,setuserInput]=useState("");//changed the default string
 var [userOutput,setuserOutput]=useState([]);
 
 let navigate=useNavigate();
@@ -19,7 +18,7 @@ function searchChange(event){
 
 
 function searchOperation(event){
-    if(userInput ==="%%%%%pqir$#")
+    if(userInput ==="")
     {
       alert("Please fill the text box");
     }
