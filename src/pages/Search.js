@@ -6,7 +6,7 @@ function Search(props) {
  
 var [userInput,setuserInput]=useState("");//changed the default string
 var [userOutput,setuserOutput]=useState([]);
-
+const[loading,setLoading]=useState(false);
 let navigate=useNavigate();
 
 
@@ -23,10 +23,12 @@ function searchOperation(event){
       alert("Please fill the text box");
     }
   else{
+    setLoading(true);
   const fetchData=async()=>{
     const res= await fetch('https://hn.algolia.com/api/v1/search?query='+userInput);
     const json=await res.json();
     setuserOutput(json.hits);
+    setLoading(false);
   };
   fetchData(); 
  /*
@@ -42,7 +44,7 @@ function searchOperation(event){
   return (
     <div className="Search">
       <input onChange={searchChange} type="text" className="search-bar" placeholder="Search"/>
-      <button onClick={searchOperation} className="search-button">Search</button>
+      <button onClick={searchOperation} className="search-button">{!loading ? ('Search'):('loading')}</button>
 
       <div className='container'>
         {userOutput.map(item=>(
