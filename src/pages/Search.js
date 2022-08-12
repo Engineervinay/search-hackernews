@@ -1,15 +1,11 @@
 import './Search.css'
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
 function Search(props) {
 
   var [userInput, setuserInput] = useState("");//changed the default string
   var [userOutput, setuserOutput] = useState([]);
-
-  let navigate = useNavigate();
-
 
   function searchChange(event) {
     var searchkey = event.target.value;
