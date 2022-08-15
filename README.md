@@ -33,3 +33,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 If you liked this, leave a star! :star:
 
 If you liked this and also liked my other work, be sure to follow me for more! :slightly_smiling_face:
+
+## Contributors
+<a href="https://github.com/Engineervinay/search-hackernews/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Engineervinay/search-hackernews" />
+</a>
+
