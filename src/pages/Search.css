@@ -1,0 +1,23 @@
+.Search .input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Search .input-group input {
+    max-width: 25rem;
+}
+
+.Search .input-group button {
+    background-color: #519872;
+}
+
+.Search .input-group input:focus,
+.Search .input-group button:focus {
+    box-shadow: none !important;
+    border-color: #519872;
+}
+
+.results .list-group-item a {
+    font-weight: 500;
+}
