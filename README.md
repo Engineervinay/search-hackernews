@@ -24,3 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 
 ![Screenshot from 2022-02-08 20-54-54](https://user-images.githubusercontent.com/29520476/153019205-c3a9eb7f-26dc-4df5-a4e1-9648439c0695.png)
+
+## License & Copyright
+© [Vinay Patil](https://engineervinay.github.io/)
+
+
+## Support Me
+If you liked this, leave a star! :star:
+
+If you liked this and also liked my other work, be sure to follow me for more! :slightly_smiling_face:
