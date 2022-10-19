@@ -40,25 +40,28 @@ function Details(props) {
   function convertHTMLToPlain(html) {
     let temporaryElement = document.createElement("div");
     temporaryElement.innerHTML = html;
-    let elChildren=temporaryElement.children
-    console.log(temporaryElement.children)
-    let spreadChildren=""
+    let elChildrenCollection = temporaryElement.children;
 
-    for (let child of elChildren){
-      console.log(child)
-      spreadChildren=child
+    let children = [];
+
+    for (let child of elChildrenCollection) {
+      children.push(child);
     }
-    
-    console.log(spreadChildren)
-    return spreadChildren.textContent || spreadChildren.innerText || "";
 
+    let values = "";
+    // for each child return their textcontent or innertext or ""
+    children.forEach(function (child) {
+      values += child.innerText || child.textContent || "";
+      return values;
+    });
+
+    return values;
+    // return elChildrenItems.textContent || elChildrenItems.innerText || "";
   }
 
   let convertedHTML = childDetails.map((item) => {
-    // console.log(item.text)
     return convertHTMLToPlain(item.text);
   });
- console.log(convertedHTML);
   return (
     <>
       {isLoading ? (
@@ -71,7 +74,7 @@ function Details(props) {
             <h3 className="mt-2">Comments</h3>
             <ol className="list-group list-group-numbered">
               {childDetails.map(
-                (item,id) => (
+                (item, id) => (
                   <li key={item.id} className="list-group-item">
                     {convertedHTML[id]}
                   </li>
