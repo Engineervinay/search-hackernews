@@ -21,7 +21,9 @@ function Search(props) {
     else {
       const fetchData = async () => {
         const res = await fetch('https://hn.algolia.com/api/v1/search?query=' + userInput);
+        
         const json = await res.json();
+        console.log(json)
         setuserOutput(json.hits);
       };
       fetchData();
