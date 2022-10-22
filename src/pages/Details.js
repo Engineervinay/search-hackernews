@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
-
+import { useState, useEffect } from "react";
 
 function Details(props) {
-  const { value } = props
+  const { value } = props;
   var [objectDetails, setobjectDetails] = useState([]);
   var [childDetails, setchildDetails] = useState([]);
   var [isLoading, setisLoading] = useState(false);
@@ -25,43 +24,68 @@ function Details(props) {
 
   useEffect(() => {
     console.log(value);
-    setisLoading(true)
+    setisLoading(true);
 
-    fetch('https://hn.algolia.com/api/v1/items/' + value)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
+    fetch("https://hn.algolia.com/api/v1/items/" + value)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
         setobjectDetails(data);
         setchildDetails(data.children);
-        setisLoading(false)
+        setisLoading(false);
       })
-      .catch(error => console.log(error))
-  }, [value])
+      .catch((error) => console.log(error));
+  }, [value]);
 
+  function convertHTMLToPlain(html) {
+    let temporaryElement = document.createElement("div");
+    temporaryElement.innerHTML = html;
+    let elChildrenCollection = temporaryElement.children;
 
+    let children = [];
+
+    for (let child of elChildrenCollection) {
+      children.push(child);
+    }
+
+    let values = "";
+    // for each child return their textcontent or innertext or ""
+    children.forEach(function (child) {
+      values += child.innerText || child.textContent || "";
+      return values;
+    });
+
+    return values;
+    // return elChildrenItems.textContent || elChildrenItems.innerText || "";
+  }
+
+  let convertedHTML = childDetails.map((item) => {
+    return convertHTMLToPlain(item.text);
+  });
   return (
     <>
-      {isLoading
-        ?
-        <p className='fs-3 text-center mt-4'>Loading...</p>
-        :
-        <div className='Details'>
-          <h1 className='fst-italic'>{objectDetails.title}</h1>
-          <h3 className='points'>Points:{objectDetails.points}</h3>
-          <div className='comments'>
-            <h3 className='mt-2'>Comments</h3>
+      {isLoading ? (
+        <p className="fs-3 text-center mt-4">Loading...</p>
+      ) : (
+        <div className="Details">
+          <h1 className="fst-italic">{objectDetails.title}</h1>
+          <h3 className="points">Points:{objectDetails.points}</h3>
+          <div className="comments">
+            <h3 className="mt-2">Comments</h3>
             <ol className="list-group list-group-numbered">
-              {childDetails.map(item => (
-                // <div className="comment" key={item.id}>{item.text}</div>
+              {childDetails.map(
+                (item, id) => (
+                  <li key={item.id} className="list-group-item">
+                    {convertedHTML[id]}
+                  </li>
+                )
 
-                <li key={item.id} className="list-group-item">
-                  {item.text}
-                </li>
-              ))}
+                // <div className="comment" key={item.id}>{item.text}</div>
+              )}
             </ol>
           </div>
         </div>
-      }
+      )}
     </>
   );
 }
