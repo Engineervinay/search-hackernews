@@ -1,9 +1,9 @@
-import "./Search.css";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import './Search.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Search(props) {
-  var [userInput, setuserInput] = useState(""); //changed the default string
+  var [userInput, setuserInput] = useState(''); //changed the default string
   var [userOutput, setuserOutput] = useState([]);
 
   function searchChange(event) {
@@ -12,12 +12,12 @@ function Search(props) {
   }
 
   function searchOperation(event) {
-    if (userInput === "") {
-      alert("Please fill the text box");
+    if (userInput === '') {
+      alert('Please fill the text box');
     } else {
       const fetchData = async () => {
         const res = await fetch(
-          "https://hn.algolia.com/api/v1/search?query=" + userInput
+          'https://hn.algolia.com/api/v1/search?query=' + userInput
         );
 
         const json = await res.json();
@@ -34,23 +34,31 @@ function Search(props) {
     }
   }
 
+  //Allows users to submit their search query by pressing the 'Enter' key.
+  function keypressOperation(event) {
+    event.preventDefault();
+    searchOperation();
+  }
+
   return (
     <div className="container Search">
-      <div className="input-group my-4">
-        <input
-          type="text"
-          className="form-control"
-          onChange={searchChange}
-          placeholder="keyword"
-        />
-        <button
-          className="btn text-light"
-          type="button"
-          onClick={searchOperation}
-        >
-          Search
-        </button>
-      </div>
+      <form onSubmit={keypressOperation}>
+        <div className="input-group my-4">
+          <input
+            type="text"
+            className="form-control"
+            onChange={searchChange}
+            placeholder="keyword"
+          />
+          <button
+            className="btn text-light"
+            type="submit"
+            onClick={searchOperation}
+          >
+            Search
+          </button>
+        </div>
+      </form>
 
       <div className="results">
         <ol className="list-group list-group-numbered">
